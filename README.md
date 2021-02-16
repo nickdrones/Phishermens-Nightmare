@@ -21,6 +21,7 @@ Some phishing sites ask for more then just a username and password, some ask for
 * Credit Card CVV and PIN numbers (literally just returning either 3 or 4 random digits)
 * Credit Card Expiration Dates (just returns the a string with a month/year in 2-digit number form)
 * Date of Birth (returns a string with the 2-digit day and month and a 4-digit year in MM/DD/YYYY format)
+* Phone Number (returns a US phone number in format "(+1)###-###-####" )
 * More to come soon!
 
 ## Final Remarks

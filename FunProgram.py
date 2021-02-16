@@ -40,22 +40,27 @@ def makeFakeSSN(): #Function that creates a fake Social Security Number in the f
     thirdOne=str(random.randint(1000,9999))
     return "{}-{}-{}".format(firstOne,secondOne,thirdOne)
 
+def makeFakePhoneNum(): #Function that creates a fake phone number in the form "(+1)###-###-####"
+    firstOne=str(random.randint(100,999))
+    secondOne=str(random.randint(109,999))
+    thirdOne=str(random.randint(1000,9999))
+    return "(+1){}-{}-{}".format(firstOne,secondOne,thirdOne)
+
 
 chars = string.ascii_letters + string.digits + '!@#$%^&*()' #Create a list of all possible characters for password generator to use
 random.seed = (os.urandom(1024)) #Seed the random number generator
 
 url='scam url here' #This is where you will copy/paste the link you found from the video demonstration
-headers = {'User-Agent': 'Mozilla/5.0 (Win64 x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'} #Browser user agent header, eventually I'll make a function that selects from a list of possible headers to further obfuscate
+
+#Browser user agent header, eventually I'll make a function that selects from a list of possible headers to further obfuscate
+headers = {'User-Agent': 'Mozilla/5.0 (Win64 x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36'} 
 
 names = json.loads(open('names.json').read()) #Open the names.json file containing first names and create a list containing the entries
 lastNames=json.loads(open('surnames.json').read()) #Open the surnames.json file containing last names and create a list containing the entries
-
-#Email Addresses - Currently a list of email domains, but I eventually will expand the list and put it into a json file like the names files
-emailAddresses=["gmail.com","yahoo.com","sjcd.edu","outlook.com", "youtube.com", "nasa.gov", "enron.com", "vxinnovations.com", "fbi.gov", "doj.gov", "cia.gov", "nsa.gov", "protonmail.com", "protonmail.ch","thecw.com","aol.com", "att.net", "comcast.net", "facebook.com", "gmail.com", "gmx.com", "googlemail.com","google.com", "hotmail.com", "hotmail.co.uk", "mac.com", "me.com", "mail.com", "msn.com","live.com", "sbcglobal.net", "verizon.net", "yahoo.com", "yahoo.co.uk","btinternet.com", "virginmedia.com", "blueyonder.co.uk", "freeserve.co.uk", "live.co.uk","ntlworld.com", "o2.co.uk", "orange.net", "sky.com", "talktalk.co.uk", "tiscali.co.uk","virgin.net", "wanadoo.co.uk", "bt.com","yahoo.ca", "hotmail.ca", "bell.net", "shaw.ca", "sympatico.ca", "rogers.com"]
+emailAddresses=json.loads(open('emailDomains.json').read()) #Open the emailDomains.json file containing email domains and create a list containing the entries
 
 while (1==1): #Run this forever
     try:  #Try/Catch to allow for error recovery like page timeouts
-
         randomName=random.randint(0,len(names)-1) #Select a random first name from the list
         randomLastName=random.randint(0,len(lastNames)-1) #Select a random last name from the list
 
