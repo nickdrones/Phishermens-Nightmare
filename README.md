@@ -16,13 +16,15 @@ The original project was good but it had a few flaws. All the emails were a firs
 * The code now selects from a decent list of possible email domains and selects a new one for each generated entry
 ## Additions
 
-Some phishing sites ask for more then just a username and password, some ask for credit card details, maiden names, or even social security numbers! I created a few simple functions to generate some of these common bits of info and will add more as I see the demand. Each of the functions needs to parameters when it is called and it simply returns a string with the data. The functions I have so far create:
+Some phishing sites ask for more then just a username and password, some ask for credit card details, maiden names, or even social security numbers! I created a few simple functions to generate some of these common bits of info and will add more as I see the demand. Each of the functions needs to parameters when it is called and it simply returns a string with the data. The functions I have so far created:
 * Credit Card Numbers (currently just random numbers but I hope to incorporate the algorithm such that cards numbers are the correct pattern)
 * Credit Card CVV and PIN numbers (literally just returning either 3 or 4 random digits)
 * Credit Card Expiration Dates (just returns the a string with a month/year in 2-digit number form)
 * Date of Birth (returns a string with the 2-digit day and month and a 4-digit year in MM/DD/YYYY format)
 * Phone Number (returns a US phone number in format "(+1)###-###-####" )
-* More to come soon!
+* Address (returns a random 5-digit house number followed by a ransomly selected street from the included json file)
+* ZIP code (just returns a random 5-digit number)
+* ID number (18-digit random ID number, some scam sites have this to try to prevent fake entries, so I added this)
 
 ## Final Remarks
 This code is written in Python 2.7.16 and you need to have the "requests" module installed in order for this code to work
